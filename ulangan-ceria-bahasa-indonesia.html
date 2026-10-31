@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ulangan Ceria Bahasa Indonesia</title>
+<style>
+:root{--bg:#eaf3ff;--ink:#1d2f4a;--card:#fff;--pri:#4a90d9;--g:#2fae5a;--y:#ffc93c;--r:#ef5b5b;--o:#f28c28;color-scheme:light dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#111d30;--ink:#eaf2ff;--card:#1b2d49}}
+:root[data-theme="dark"]{--bg:#111d30;--ink:#eaf2ff;--card:#1b2d49;color-scheme:dark}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:"Trebuchet MS","Comic Sans MS",system-ui,sans-serif;min-height:100vh;user-select:none;-webkit-user-select:none}
+.screen{display:none;max-width:700px;margin:0 auto;padding:16px}.screen.on{display:block}
+h1{text-align:center;font-size:clamp(26px,7vw,40px);margin:8px 0}
+.sub{text-align:center;margin:0 0 14px;opacity:.85}
+.emo{text-align:center;font-size:72px;line-height:1}
+.card{background:var(--card);border-radius:22px;padding:16px;margin-bottom:12px;box-shadow:0 4px 0 #0002}
+.card h3{margin:0 0 10px}
+input{width:100%;font:inherit;font-size:22px;padding:14px;border-radius:16px;border:3px solid var(--pri);background:var(--bg);color:var(--ink);text-align:center}
+.btn{display:block;width:100%;font:inherit;font-size:22px;font-weight:bold;padding:14px;border:0;border-radius:18px;background:var(--y);color:#2b2b2b;cursor:pointer;box-shadow:0 5px 0 #b8941a;margin-top:12px}
+.btn:active{transform:translateY(4px);box-shadow:0 1px 0 #b8941a}
+.btn.alt{background:var(--card);color:var(--ink);border:3px solid var(--ink);box-shadow:0 4px 0 #0003}
+.home{display:inline-block;text-decoration:none;font-weight:bold;font-size:15px;padding:8px 14px;border-radius:999px;background:var(--card);color:var(--ink);border:3px solid var(--ink)}
+.center{text-align:center;margin-bottom:8px}
+.greet{background:var(--pri);color:#fff;border-radius:22px;padding:14px;text-align:center;font-size:clamp(20px,5vw,28px);font-weight:bold;margin-bottom:12px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.chip{font:inherit;font-size:18px;font-weight:bold;padding:14px 6px;border-radius:16px;border:3px solid transparent;background:var(--bg);color:var(--ink);cursor:pointer}
+.chip small{display:block;font-size:12px;font-weight:normal;opacity:.8}
+.chip.sel{border-color:var(--y);background:#ffc93c33}
+.babs{display:grid;gap:8px}
+.bab{font:inherit;font-size:17px;text-align:left;padding:12px 14px;border-radius:14px;border:3px solid var(--pri);background:var(--bg);color:var(--ink);cursor:pointer}
+.bab.all{background:var(--pri);color:#fff}
+.top{display:flex;justify-content:space-between;align-items:center;gap:6px;margin-bottom:10px;font-weight:bold}
+.sec{font:inherit;font-size:14px;padding:6px 12px;border-radius:14px;border:3px solid var(--ink);background:var(--card);color:var(--ink);cursor:pointer}
+.bar{height:12px;border-radius:8px;background:#0002;overflow:hidden;margin-bottom:12px}
+.bar i{display:block;height:100%;width:0;background:var(--pri);transition:width .3s}
+.qt{font-size:clamp(19px,4.8vw,26px);font-weight:bold;text-align:center;margin:8px 0 14px;line-height:1.4}
+.opts{display:grid;gap:10px}
+.opt{font:inherit;font-size:clamp(17px,4.4vw,22px);font-weight:bold;padding:16px;border-radius:18px;border:0;background:var(--o);color:#fff;cursor:pointer;box-shadow:0 5px 0 #b8641a;touch-action:manipulation}
+.opt:active{transform:translateY(4px)}
+.opt.ok{background:var(--g);box-shadow:0 5px 0 #1d7a3c}
+.opt.no{background:var(--r);box-shadow:0 5px 0 #a83a3a;animation:sh .4s}
+.opt:disabled{cursor:default}
+@keyframes sh{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.stars{font-size:46px;text-align:center;margin:6px 0}
+.score{text-align:center;font-size:22px;font-weight:bold}
+#toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--bg);padding:12px 20px;border-radius:18px;font-weight:bold;opacity:0;transition:.25s;pointer-events:none;z-index:9;max-width:90vw;text-align:center}
+#toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+</style></head><body>
+
+<section id="s-start" class="screen on">
+  <div class="center"><a class="home" href="https://gtkkotim2026-alt.github.io/Game-Ceria-Hadvhy/">🏠 Kembali ke Menu Utama</a></div>
+  <div class="emo">📚</div>
+  <h1>Ulangan Ceria Bahasa Indonesia</h1>
+  <p class="sub">Menyimak • Membaca • Berbicara • Menulis<br>Kelas 1 sampai 6</p>
+  <div class="card"><h3>Siapa namamu?</h3>
+    <input id="nm" maxlength="20" placeholder="Tulis namamu di sini..." autocomplete="off">
+    <button class="btn" id="go">Masuk ▶</button></div>
+</section>
+
+<section id="s-menu" class="screen">
+  <div class="center"><a class="home" href="https://gtkkotim2026-alt.github.io/Game-Ceria-Hadvhy/">🏠 Kembali ke Menu Utama</a></div>
+  <div class="greet" id="greet"></div>
+  <div class="card"><h3>1. Pilih kelas</h3><div class="grid" id="kelas"></div></div>
+  <div class="card" id="babcard" style="display:none"><h3>2. Pilih BAB ulangan</h3><div class="babs" id="babs"></div></div>
+  <button class="btn alt" id="chg">✏️ Ganti Nama</button>
+</section>
+
+<section id="s-quiz" class="screen">
+  <div class="top"><button class="sec" id="qb">⬅ Pilih BAB</button><span id="qh"></span><button class="sec" id="snd">🔊</button></div>
+  <div class="bar"><i id="pg"></i></div>
+  <div class="score" id="sc"></div>
+  <div class="qt" id="qt"></div>
+  <div style="text-align:center;margin-bottom:10px"><button class="sec" id="rd">🔈 Bacakan soal</button></div>
+  <div class="opts" id="op"></div>
+</section>
+
+<section id="s-res" class="screen">
+  <div class="card">
+    <div class="emo">🏆</div><h1 id="rh"></h1>
+    <div class="stars" id="rs"></div><div class="score" id="rt"></div>
+    <p class="sub" id="rm"></p>
+    <button class="btn" id="again">🔁 Ulangi</button>
+    <button class="btn alt" id="other">📚 Pilih BAB Lain</button>
+    <div class="center" style="margin-top:14px"><a class="home" href="https://gtkkotim2026-alt.github.io/Game-Ceria-Hadvhy/">🏠 Kembali ke Menu Utama</a></div>
+  </div>
+</section>
+<div id="toast"></div>
+
+<script>
+/* ============================================================
+   BANK SOAL — EDIT DI SINI untuk menyesuaikan dengan buku/modul Anda.
+   Format tiap soal: ["pertanyaan","jawaban BENAR","salah 1","salah 2"]
+   Jawaban benar SELALU ditulis di urutan pertama (diacak otomatis saat main).
+   Tiap kelas berisi daftar BAB: ["Judul BAB", [soal, soal, ...]]
+   Fase: A = kelas 1-2, B = kelas 3-4, C = kelas 5-6 (Capaian Pembelajaran Kemendikdasmen).
+   ============================================================ */
+const FASE={1:'A',2:'A',3:'B',4:'B',5:'C',6:'C'};
+const BANK={
+1:[
+ ["Huruf dan Suku Kata",[
+  ["Huruf pertama pada kata \"bola\" adalah ...","b","a","l"],
+  ["Kata \"buku\" terdiri atas suku kata ...","bu-ku","buk-u","b-uku"],
+  ["Kelompok huruf vokal adalah ...","a, i, u, e, o","b, c, d","k, l, m"],
+  ["Gambar 🐱 bernama ...","kucing","kuda","kursi"]]],
+ ["Membaca Kalimat Sederhana",[
+  ["Ini ibu. Ibu memasak. Siapa yang memasak?","ibu","ayah","adik"],
+  ["Kalimat yang benar adalah ...","Adik minum susu.","minum adik susu","susu adik minum"],
+  ["Setiap pagi, Dina menggosok gigi. Dina menggosok gigi pada waktu ...","pagi","malam","siang"],
+  ["Kata yang menyebut anggota keluarga adalah ...","kakak","meja","sapu"]]],
+ ["Menyimak, Berbicara, dan Menulis",[
+  ["Saat bertemu guru di pagi hari, kita mengucapkan ...","Selamat pagi, Bu.","Selamat tidur, Bu.","Aku pergi dulu."],
+  ["Kata yang sopan untuk meminta bantuan adalah ...","tolong","berikan!","cepat!"],
+  ["Awal kalimat ditulis dengan huruf ...","kapital","kecil","miring"],
+  ["Akhir kalimat berita diberi tanda ...","titik (.)","tanya (?)","koma (,)"]]]],
+2:[
+ ["Membaca dan Memahami Bacaan",[
+  ["Ayah menanam pohon mangga di halaman. Apa yang ditanam ayah?","pohon mangga","bunga","padi"],
+  ["Rini mencuci tangan sebelum makan. Mengapa Rini mencuci tangan?","agar bersih dan sehat","karena haus","karena mengantuk"],
+  ["Lawan kata \"besar\" adalah ...","kecil","tinggi","berat"],
+  ["Persamaan kata \"cantik\" adalah ...","indah","jelek","kotor"]]],
+ ["Menyimak dan Berbicara",[
+  ["Jika menerima hadiah, kita mengucapkan ...","terima kasih","maaf","permisi"],
+  ["Jika berbuat salah, kita mengucapkan ...","maaf","terima kasih","selamat"],
+  ["Saat teman bercerita, sikap yang baik adalah ...","memperhatikan dengan tenang","menyela terus","bermain sendiri"],
+  ["Kalimat tanya yang benar adalah ...","Siapa namamu?","Siapa namamu.","Siapa namamu!"]]],
+ ["Menulis Kalimat",[
+  ["Huruf pertama pada nama orang ditulis dengan huruf ...","kapital","kecil","tebal"],
+  ["Kalimat yang ditulis dengan benar adalah ...","Ibu pergi ke pasar.","ibu pergi ke pasar","Ibu pergi ke pasar"],
+  ["Susunan kata \"makan – nasi – adik\" menjadi kalimat ...","Adik makan nasi.","Nasi adik makan.","Makan nasi adik."],
+  ["Kalimat \"Awas, ada ular\" diakhiri tanda ...","seru (!)","titik (.)","tanya (?)"]]]],
+3:[
+ ["Ide Pokok dan Isi Bacaan",[
+  ["Ide pokok adalah ...","gagasan utama sebuah paragraf","kalimat terakhir","judul buku"],
+  ["Kucing adalah hewan peliharaan. Ia suka tidur siang dan bermain bola benang. Ide pokok bacaan ini adalah ...","kucing sebagai hewan peliharaan","makanan ikan","bola benang"],
+  ["Pertanyaan \"di mana\" menanyakan ...","tempat","waktu","pelaku"],
+  ["Judul yang cocok untuk bacaan tentang manfaat air bagi tubuh adalah ...","Manfaat Air","Cara Membuat Kue","Hewan di Hutan"]]],
+ ["Kosakata dan Kalimat",[
+  ["Persamaan kata \"pandai\" adalah ...","pintar","malas","bodoh"],
+  ["Lawan kata \"rajin\" adalah ...","malas","giat","tekun"],
+  ["Kata \"membaca\" termasuk ...","kata kerja","kata benda","kata sifat"],
+  ["Kalimat yang menggunakan kata sifat adalah ...","Bunga itu sangat harum.","Ayah membaca koran.","Adik berlari ke taman."]]],
+ ["Ejaan dan Tanda Baca",[
+  ["Tanda koma (,) dipakai untuk memisahkan ...","unsur dalam perincian","akhir pertanyaan","kata seru"],
+  ["Kalimat yang penulisannya benar adalah ...","Aku tinggal di Surabaya.","aku tinggal di surabaya.","Aku tinggal di surabaya."],
+  ["Kalimat tanya diakhiri tanda ...","tanya (?)","titik (.)","seru (!)"],
+  ["Kata baku yang benar adalah ...","silakan","silahkan","selakan"]]]],
+4:[
+ ["Paragraf dan Ide Pokok",[
+  ["Kalimat yang memuat gagasan utama paragraf disebut kalimat ...","utama","penjelas","tanya"],
+  ["Kalimat yang menjelaskan kalimat utama disebut kalimat ...","penjelas","utama","seru"],
+  ["Paragraf deduktif memiliki kalimat utama di ...","awal paragraf","akhir paragraf","tengah paragraf"],
+  ["Paragraf induktif memiliki kalimat utama di ...","akhir paragraf","awal paragraf","tengah paragraf"]]],
+ ["Kata Baku dan Imbuhan",[
+  ["Kata baku dari \"apotik\" adalah ...","apotek","apotik","apoteek"],
+  ["Kata dasar dari \"menulis\" adalah ...","tulis","menu","lis"],
+  ["Imbuhan pada kata \"dimakan\" adalah ...","di-","-an","me-"],
+  ["Kata \"berlari\" mendapat imbuhan ...","ber-","me-","ter-"]]],
+ ["Cerita dan Puisi",[
+  ["Orang atau hewan yang berperan dalam cerita disebut ...","tokoh","latar","amanat"],
+  ["Tempat, waktu, dan suasana dalam cerita disebut ...","latar","tokoh","judul"],
+  ["Pesan yang ingin disampaikan penulis dalam cerita disebut ...","amanat","tokoh","latar"],
+  ["Kumpulan baris dalam puisi disebut ...","bait","paragraf","bab"]]]],
+5:[
+ ["Fakta, Opini, dan Informasi",[
+  ["Pernyataan yang dapat dibuktikan kebenarannya disebut ...","fakta","opini","dongeng"],
+  ["Pendapat pribadi seseorang disebut ...","opini","fakta","data"],
+  ["Kalimat yang termasuk fakta adalah ...","Matahari terbit di timur.","Bakso adalah makanan paling enak.","Pelajaran itu paling membosankan."],
+  ["Kalimat \"Menurut saya, film itu sangat seru\" adalah ...","opini","fakta","perintah"]]],
+ ["Ejaan, Tanda Baca, dan Kalimat",[
+  ["Penulisan yang benar adalah ...","Buku itu di atas meja.","Buku itu diatas meja.","Buku itu di-atas meja."],
+  ["Penulisan yang benar adalah ...","Adik dibelikan baju baru.","Adik di belikan baju baru.","Adik di-belikan baju baru."],
+  ["Tanda petik (\" \") dipakai untuk mengapit ...","kutipan langsung","nama hari","angka"],
+  ["Kalimat yang memiliki dua pola subjek-predikat disebut kalimat ...","majemuk","tunggal","tanya"]]],
+ ["Teks Prosedur dan Surat",[
+  ["Teks yang berisi langkah-langkah melakukan sesuatu disebut teks ...","prosedur","narasi","puisi"],
+  ["Kata yang menunjukkan urutan langkah adalah ...","pertama, kemudian, terakhir","karena, tetapi, jika","mungkin, tentu, barangkali"],
+  ["Surat kepada kepala sekolah termasuk surat ...","resmi","pribadi","kartu pos"],
+  ["Salam pembuka yang tepat pada surat resmi adalah ...","Dengan hormat,","Halo teman-teman,","Hai, apa kabar?"]]]],
+6:[
+ ["Menyimpulkan Informasi",[
+  ["Menyimpulkan bacaan berarti ...","mengambil inti dari seluruh bacaan","menyalin seluruh bacaan","menambah isi bacaan"],
+  ["Plastik sulit terurai dan mencemari tanah serta laut. Karena itu, kita perlu mengurangi sampah plastik. Simpulan bacaan ini adalah ...","sampah plastik perlu dikurangi","plastik sangat murah","laut tidak berbahaya"],
+  ["Kalimat yang menunjukkan hubungan sebab-akibat adalah ...","Banjir terjadi karena sungai tersumbat sampah.","Ibu memasak nasi goreng.","Dia berlari kencang."],
+  ["Ungkapan \"oleh karena itu\" menunjukkan hubungan ...","akibat","pertentangan","waktu"]]],
+ ["Majas dan Peribahasa",[
+  ["Majas yang membandingkan dua hal dengan kata \"seperti\" atau \"bagaikan\" disebut ...","perumpamaan (simile)","hiperbola","personifikasi"],
+  ["Kalimat \"Angin berbisik di telingaku\" menggunakan majas ...","personifikasi","hiperbola","ironi"],
+  ["Arti peribahasa \"Air beriak tanda tak dalam\" adalah ...","orang yang banyak bicara biasanya kurang berilmu","orang pendiam pasti pintar","air sungai selalu dalam"],
+  ["Peribahasa \"Rajin pangkal pandai\" bermakna ...","rajin belajar membuat kita pandai","pandai membuat kita malas","kita pandai tanpa belajar"]]],
+ ["Kalimat Efektif dan Teks Persuasi",[
+  ["Kalimat efektif adalah kalimat yang ...","singkat, jelas, dan mudah dipahami","panjang dan berbelit","penuh kata asing"],
+  ["Kalimat yang efektif adalah ...","Para siswa mengikuti upacara.","Para siswa-siswa mengikuti upacara.","Siswa-siswa para mengikuti upacara."],
+  ["Teks yang bertujuan mengajak pembaca melakukan sesuatu disebut teks ...","persuasi","deskripsi","narasi"],
+  ["Kalimat ajakan yang tepat dalam teks persuasi adalah ...","Ayo, jaga kebersihan lingkungan kita!","Kemarin hujan deras turun.","Bunga itu berwarna merah."]]]]
+};
+
+const $=id=>document.getElementById(id);
+const shuf=a=>a.map(x=>[Math.random(),x]).sort((p,q)=>p[0]-q[0]).map(p=>p[1]);
+const show=id=>document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('on',s.id===id));
+let nama='Ananda',kelas=0,babSel=-2,list=[],qi=0,skor=0,lock=false,sound=true;
+
+function toast(t){const e=$('toast');e.textContent=t;e.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove('on'),1800)}
+function speak(t){if(!sound||!('speechSynthesis' in window))return;try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='id-ID';u.pitch=1.5;u.rate=1;speechSynthesis.speak(u)}catch(e){}}
+let ac;
+function tone(f,t0,d,type='sine',v=.18){try{ac=ac||new(window.AudioContext||window.webkitAudioContext)();const o=ac.createOscillator(),g=ac.createGain();o.type=type;o.frequency.value=f;o.connect(g);g.connect(ac.destination);const s=ac.currentTime+t0;g.gain.setValueAtTime(v,s);g.gain.exponentialRampToValueAtTime(.001,s+d);o.start(s);o.stop(s+d)}catch(e){}}
+function sBenar(){if(!sound)return;tone(659,0,.15,'triangle');tone(880,.12,.15,'triangle');tone(1175,.24,.25,'triangle')}
+function sSalah(){if(!sound)return;tone(220,0,.2,'sawtooth',.12);tone(150,.18,.35,'sawtooth',.12)}
+$('snd').onclick=()=>{sound=!sound;$('snd').textContent=sound?'🔊':'🔇';if(!sound&&'speechSynthesis' in window)speechSynthesis.cancel()};
+const bacaan=t=>t.replace('...','titik titik').replace(/\(([^)]*)\)/g,'$1');
+
+function masuk(){
+  nama=$('nm').value.trim()||'Ananda';
+  $('greet').textContent=`Assalamu'alaikum, ${nama}! 👋`;
+  show('s-menu');renderKelas();
+  toast(`Assalamu'alaikum, ${nama}!`);
+  speak(`Assalamu'alaikum, ${nama}!`);
+}
+$('go').onclick=masuk;
+$('nm').addEventListener('keydown',e=>{if(e.key==='Enter')masuk()});
+$('chg').onclick=()=>{show('s-start');$('nm').focus()};
+
+function renderKelas(){
+  $('kelas').innerHTML=[1,2,3,4,5,6].map(k=>`<button class="chip ${k===kelas?'sel':''}" data-k="${k}">Kelas ${k}<small>Fase ${FASE[k]}</small></button>`).join('');
+  $('kelas').querySelectorAll('.chip').forEach(b=>b.onclick=()=>{kelas=+b.dataset.k;renderKelas();renderBab()});
+}
+function renderBab(){
+  if(!kelas){$('babcard').style.display='none';return}
+  $('babcard').style.display='block';
+  const bs=BANK[kelas];
+  $('babs').innerHTML=bs.map((b,i)=>`<button class="bab" data-i="${i}">📖 BAB ${i+1}: ${b[0]} <small>(${b[1].length} soal)</small></button>`).join('')
+   +`<button class="bab all" data-i="-1">🌟 Ulangan Semua BAB (${bs.reduce((n,b)=>n+b[1].length,0)} soal)</button>`;
+  $('babs').querySelectorAll('.bab').forEach(b=>b.onclick=()=>mulai(+b.dataset.i));
+  $('babcard').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function mulai(i){
+  babSel=i;const bs=BANK[kelas];
+  const src=i<0?bs.flatMap(b=>b[1]):bs[i][1];
+  list=shuf(src).map(s=>({q:s[0],a:s[1],o:shuf(s.slice(1))}));
+  qi=0;skor=0;
+  $('qh').textContent=`Kelas ${kelas} • ${i<0?'Semua BAB':'BAB '+(i+1)}`;
+  show('s-quiz');tampil();
+}
+function tampil(){
+  lock=false;const q=list[qi];
+  $('pg').style.width=(qi/list.length*100)+'%';
+  $('sc').textContent=`Soal ${qi+1} dari ${list.length}  •  ⭐ ${skor}`;
+  $('qt').textContent=q.q;
+  $('op').innerHTML=q.o.map(o=>`<button class="opt">${o}</button>`).join('');
+  $('op').querySelectorAll('.opt').forEach(b=>b.onclick=()=>jawab(b,q));
+  speak(bacaan(q.q));
+}
+function jawab(btn,q){
+  if(lock)return;lock=true;
+  const ok=btn.textContent===q.a;
+  $('op').querySelectorAll('.opt').forEach(b=>{b.disabled=true;if(b.textContent===q.a)b.classList.add('ok')});
+  let msg;
+  if(ok){skor++;sBenar();msg=`Benar, ${nama}! Hebat!`;toast('✅ '+msg)}
+  else{btn.classList.add('no');sSalah();msg=`Coba lagi ya, ${nama}. Jawabannya ${bacaan(q.a)}`;toast('❌ Jawaban benar: '+q.a)}
+  $('sc').textContent=`Soal ${qi+1} dari ${list.length}  •  ⭐ ${skor}`;
+  setTimeout(()=>speak(msg),ok?350:450);
+  setTimeout(()=>{qi++;qi<list.length?tampil():selesai()},ok?2200:3400);
+}
+function selesai(){
+  const n=list.length,p=skor/n;
+  const bintang=p>=.8?'⭐⭐⭐':p>=.5?'⭐⭐':'⭐';
+  const pesan=p>=.8?'Luar biasa! Kamu sangat pintar!':p>=.5?'Bagus! Belajar sedikit lagi ya!':'Jangan menyerah, ayo belajar dan coba lagi!';
+  $('rh').textContent=`Selesai, ${nama}!`;
+  $('rs').textContent=bintang;
+  $('rt').textContent=`Nilai: ${skor} dari ${n} soal`;
+  $('rm').textContent=pesan;
+  show('s-res');sBenar();
+  setTimeout(()=>speak(`Selesai, ${nama}. Kamu benar ${skor} dari ${n} soal. ${pesan}`),500);
+}
+$('rd').onclick=()=>speak(bacaan(list[qi].q));
+$('again').onclick=()=>mulai(babSel);
+$('other').onclick=()=>{show('s-menu');renderKelas();renderBab()};
+$('qb').onclick=()=>{if('speechSynthesis' in window)speechSynthesis.cancel();show('s-menu');renderKelas();renderBab()};
+</script>
+</body></html>
